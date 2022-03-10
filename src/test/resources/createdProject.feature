@@ -30,7 +30,7 @@ Feature: Project
     And guardo el Email de la respuesta en Email_User
     And guardo el Password de la respuesta en Pass_User
     And el atributo FullName deberia ser Denisse
-    Given yo uso la authenticacion por token con Email_User y Pass_User
+    Given yo uso la auth por basica con Email_User y Pass_User
     When envio PUT request a la /api/user/0.json con el body
     """
     {
