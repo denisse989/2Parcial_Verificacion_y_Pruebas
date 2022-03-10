@@ -13,9 +13,9 @@ Feature: Project
     """
     {
     "Id": "IGNORE",
-    "Email": "deniss@email.com",
+    "Email": "denisse@email.com",
     "Password": null,
-    "FullName": "Denisse123",
+    "FullName": "Denisse",
     "TimeZone": 0,
     "IsProUser": false,
     "DefaultProjectId": "IGNORE",
@@ -27,17 +27,18 @@ Feature: Project
     "TimeZoneId": "Pacific Standard Time"
 }
     """
-    And guardo el Id de la respuesta en ID_User
-    And el atributo Content deberia ser NewItem
-
-    When envio PUT request a la /api/items/ID_User.json con el body
+    And guardo el Email de la respuesta en Email_User
+    And guardo el Password de la respuesta en Pass_User
+    And el atributo FullName deberia ser Denisse
+    Given yo uso la authenticacion por token con Email_User y Pass_User
+    When envio PUT request a la /api/user/0.json con el body
     """
     {
-      "Content":"NewItem2"
+      "FullName":"Denisse123"
     }
     """
     Then el codigo de respuesta deberia ser 200
-    And el atributo Content deberia ser NewItem2
+    And el atributo FullName deberia ser Denisse123
 
   Scenario: create project
     Given yo uso la authenticacion por token

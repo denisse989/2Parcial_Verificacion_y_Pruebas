@@ -37,6 +37,23 @@ public class MyStepCleans {
 
 
     }
+    @Given("yo uso la authenticacion por {} con {} y {}")
+    public void yoUsoLaAuthenticacionToken(String type,String mail,String pass) {
+
+        String authBasic="Basic "+ Base64.getEncoder().encodeToString((dynamicVar.get(mail)+":"+pass).getBytes());
+        if (type.equals("basica")){
+            requestInformation.setHeaders("Authorization",authBasic);
+        }else{
+            RequestInformation tokenRequest= new RequestInformation();
+            tokenRequest.setUrl(Configuration.host+"/api/authentication/token.json");
+            tokenRequest.setHeaders("Authorization",authBasic);
+            response= FactoryRequest.make("get").send(tokenRequest);
+            String token= response.then().extract().path("TokenString");
+            requestInformation.setHeaders("Token",token);
+        }
+
+
+    }
 
     @When("envio {} request a la {} con el body")
     public void envioPOSTRequestALaApiProjectsJsonConElBody(String method,String url,String body) {
