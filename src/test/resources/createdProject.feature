@@ -40,6 +40,7 @@ Feature: Project
     Then el codigo de respuesta deberia ser 200
     And el atributo FullName deberia ser Denisse123
 
+
   Scenario: create project
     Given yo uso la authenticacion por token
     When envio POST request a la /api/projects.json con el body
@@ -138,6 +139,8 @@ Feature: Project
     """
     Then el codigo de respuesta deberia ser 200
     And el atributo Content deberia ser NewItem2
+
+
   Scenario:
     Given yo uso la authenticacion por token
     When envio DELETE request a la /api/authentication/token.json con el body
