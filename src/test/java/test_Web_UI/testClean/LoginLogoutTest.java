@@ -25,6 +25,10 @@ MenuSection menuSection=new MenuSection();
     signupModal.signupButton.click();
     Thread.sleep(2000);
     Assertions.assertTrue(menuSection.logout.isControlDisplayed(),"ERROR: no se hizo el login");
-    //Delete
+    //Logout
+    menuSection.logout.click();
+    Thread.sleep(2000);
+    Assertions.assertTrue(mainPage.signupButton.isControlDisplayed(),"ERROR:no se hizo el logout");
+
 }
 }

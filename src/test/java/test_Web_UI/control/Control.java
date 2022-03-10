@@ -1,8 +1,8 @@
 package test_Web_UI.control;
 
-import ejercicioExamen.singleton.Session;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import test_Web_UI.singleton.Session;
 
 
 public class Control {

@@ -1,7 +1,8 @@
 package test_Web_UI.singleton;
 
-import ejercicioExamen.factoryBrowser.FactoryBrowser;
+
 import org.openqa.selenium.WebDriver;
+import test_Web_UI.factoryBrowser.FactoryBrowser;
 
 
 public class Session {
