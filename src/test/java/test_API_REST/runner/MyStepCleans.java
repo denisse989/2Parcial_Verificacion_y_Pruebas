@@ -40,7 +40,7 @@ public class MyStepCleans {
     @Given("yo uso la auth por {} con {} y {}")
     public void yoUsoLaAuthToken(String type,String mail,String pass) {
 
-        String authBasic="Basic "+ Base64.getEncoder().encodeToString((replaceVar(mail)+":"+replaceVar(pass)).getBytes());
+        String authBasic="Basic "+ Base64.getEncoder().encodeToString((Configuration.newUser+":"+Configuration.newPass).getBytes());
         if (type.equals("basica")){
             requestInformation.setHeaders("Authorization",authBasic);
         }else{
